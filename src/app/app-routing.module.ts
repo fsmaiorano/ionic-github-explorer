@@ -10,7 +10,8 @@ const routes: Routes = [
         loadChildren:
             './repositories/repositories.module#RepositoriesPageModule',
         data: {
-            title: 'Starred Repositories'
+            title: 'Starred Repositories',
+            storage: 'starred-repositories'
         }
     },
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
         loadChildren:
             './repositories/repositories.module#RepositoriesPageModule',
         data: {
-            title: 'Repositories'
+            title: 'Repositories',
+            storage: 'repositories'
         }
     }
 ];

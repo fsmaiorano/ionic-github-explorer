@@ -1,7 +1,43 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>{{ title }} </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title> {{ title }} </ion-title>
+        <!-- <ion-buttons slot="end">
+                    <a [attr.href]="'https://github.com/' + user?.login">
+                        <ion-icon name="logo-github"></ion-icon
+                    ></a>
+                </ion-buttons> -->
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data..."
+        >
+            <ng-container *ngFor="let repo of repositories">
+                <ion-card (click)="redirectToRepository(repo)">
+                    <ion-card-header>
+                        <ion-card-title>{{ repo.name }}</ion-card-title>
+                        <ion-card-subtitle
+                            *ngIf="repo.owner?.login !== user?.login"
+                            >{{ repo.owner?.login }}</ion-card-subtitle
+                        >
+                        <ion-card-subtitle>{{
+                            repo.language ? repo.language : 'not defined'
+                        }}</ion-card-subtitle>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        Keep close to Nature's heart... and break clear away,
+                        once in awhile, and climb a mountain or spend a week in
+                        the woods. Wash your spirit clean.
+                    </ion-card-content>
+                </ion-card>
+            </ng-container>
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

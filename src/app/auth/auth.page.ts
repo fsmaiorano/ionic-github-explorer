@@ -35,6 +35,7 @@ export class AuthPage implements OnInit {
         this.feedback = undefined;
         this.initAuthForm();
         this.frmAuth.reset();
+        this.resetDatabase();
     }
 
     initAuthForm(): void {
@@ -63,6 +64,10 @@ export class AuthPage implements OnInit {
                 this.presentToast();
             }
         );
+    }
+
+    resetDatabase(): void {
+        this.storage.clear();
     }
 
     async presentLoading() {
