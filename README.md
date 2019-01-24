@@ -1,4 +1,4 @@
-# Ionic Github Explorer
+# :iphone: Ionic Github Explorer
 
 In this application you can consult a user profile and can view repositories and starred repositories of selected user.
 
@@ -13,7 +13,7 @@ In this application you can consult a user profile and can view repositories and
 -   Run the app using `ionic serve -c`.
 -   In your browser, access the url: `localhost:8100`.
 
-# Run on Mobile (Easy mode)
+## Run on Mobile (Easy mode)
 
 -   Install the DevApp: https://ionicframework.com/docs/appflow/devapp
 -   Run the application
