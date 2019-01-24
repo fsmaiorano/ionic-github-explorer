@@ -1,5 +1,7 @@
 {
   "name": "ionic-github-explorer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

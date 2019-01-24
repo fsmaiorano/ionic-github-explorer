@@ -1,12 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title> {{ user?.login }} profile </ion-title>
+        <ion-buttons slot="end">
+            <a [attr.href]="'https://github.com/' + user?.login">
+                <ion-icon name="logo-github"></ion-icon
+            ></a>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <div class="info">
+        <ion-img class="info-image" [src]="user?.avatar_url"></ion-img>
+        <div class="info-user">
+            <ion-item>
+                <ion-text>Name: {{ user?.name }}</ion-text>
+            </ion-item>
+            <ion-item *ngIf="user?.email">
+                <ion-text>E-mail: {{ user?.email }}</ion-text>
+            </ion-item>
+            <ion-item *ngIf="user?.company">
+                <ion-text>Company: {{ user?.company }}</ion-text>
+            </ion-item>
+            <ion-item *ngIf="user?.location">
+                <ion-text>Location: {{ user?.location }}</ion-text>
+            </ion-item>
+            <ion-item *ngIf="user?.blog">
+                <ion-text>Site: {{ user?.blog }}</ion-text>
+            </ion-item>
+            <ion-item text-wrap>
+                <ion-text color="primary">
+                    Looking for a new job!
+                </ion-text>
+            </ion-item>
+        </div>
+    </div>
+    <ion-button color="dark" expand="full" (click)="presentActionSheet()">
+        <ion-ripple-effect></ion-ripple-effect>
+        Projects
+    </ion-button>
 </ion-content>

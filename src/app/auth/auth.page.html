@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Github Explorer</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="frmAuth">
+        <ion-item>
+            <ion-label position="floating">Github Username</ion-label>
+            <ion-input formControlName="username"></ion-input>
+        </ion-item>
+        <ion-button
+            (click)="verifyUser()"
+            expand="full"
+            color="primary"
+            [disabled]="frmAuth.invalid"
+            >Explore <ion-icon name="paper-plane"></ion-icon
+        ></ion-button>
+    </form>
+</ion-content>

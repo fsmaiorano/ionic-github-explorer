@@ -9,3 +9,13 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+    outline: 0;
+    text-decoration: none;
+    color: black;
+}
