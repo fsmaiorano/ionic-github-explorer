@@ -23,18 +23,19 @@
                     <ion-card-header>
                         <ion-card-title>{{ repo.name }}</ion-card-title>
                         <ion-card-subtitle
+                            color="tertiary"
                             *ngIf="repo.owner?.login !== user?.login"
                             >{{ repo.owner?.login }}</ion-card-subtitle
                         >
-                        <ion-card-subtitle>{{
+                        <ion-card-subtitle color="danger">{{
                             repo.language ? repo.language : 'not defined'
                         }}</ion-card-subtitle>
                     </ion-card-header>
 
                     <ion-card-content>
-                        Keep close to Nature's heart... and break clear away,
-                        once in awhile, and climb a mountain or spend a week in
-                        the woods. Wash your spirit clean.
+                        <ion-label>
+                            {{ repo.description }}
+                        </ion-label>
                     </ion-card-content>
                 </ion-card>
             </ng-container>
