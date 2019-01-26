@@ -12,7 +12,11 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="isLoading">
+    <ion-spinner name="crescent"></ion-spinner>
+</ion-content>
+
+<ion-content padding *ngIf="!isLoading">
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
         <ion-infinite-scroll-content
             loadingSpinner="bubbles"

@@ -16,6 +16,7 @@ export class RepositoriesPage implements OnInit {
     public title: string;
     public user: User;
     public repositories: Repositories[];
+    public isLoading: boolean;
     constructor(
         private activatedRoute: ActivatedRoute,
         private storage: Storage,
@@ -25,6 +26,7 @@ export class RepositoriesPage implements OnInit {
     @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
     ngOnInit() {
+        this.isLoading = true;
         this.activatedRoute.data.subscribe(data => {
             this.title = data.title;
             this.storage.get(data.storage).then((repositories: string) => {
@@ -33,14 +35,14 @@ export class RepositoriesPage implements OnInit {
                 }
 
                 this.repositories = JSON.parse(repositories);
-            });
-
-            this.storage.get('user').then((user: string) => {
-                if (!user) {
-                    return this.navController.navigateRoot('');
-                }
-
-                this.user = JSON.parse(user);
+                this.storage.get('user').then((user: string) => {
+                    if (!user) {
+                        return this.navController.navigateRoot('');
+                    }
+    
+                    this.user = JSON.parse(user);
+                    this.isLoading = false;
+                });
             });
         });
     }
