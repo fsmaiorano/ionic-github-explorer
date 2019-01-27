@@ -1,6 +1,6 @@
 # :iphone: Ionic Github Explorer
 
-In this application you can consult a user profile and can view repositories and starred repositories of selected user.
+In this application you can consult a user profile, view repositories and starred repositories of selected selected user.
 
 ## Requeriments
 
